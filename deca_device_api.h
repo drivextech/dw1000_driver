@@ -132,7 +132,9 @@ typedef signed long int32;
 #define DWT_FF_RSVD_EN              0x040           // reserved frame types allowed
 
 //DW1000 interrupt events
+#define DWT_INT_TPRS            0x00000020          // transmit preamble sent
 #define DWT_INT_TFRS            0x00000080          // frame sent
+#define DWT_INT_SFDD            0x00000200          // receiver SFD detected
 #define DWT_INT_LDED            0x00000400          // micro-code has finished execution
 #define DWT_INT_RFCG            0x00004000          // frame received with good CRC
 #define DWT_INT_RPHE            0x00001000          // receiver PHY header error
@@ -143,6 +145,7 @@ typedef signed long int32;
 #define DWT_INT_RXPTO           0x00200000          // preamble detect timeout
 #define DWT_INT_SFDT            0x04000000          // SFD timeout
 #define DWT_INT_ARFE            0x20000000          // frame rejected (due to frame filtering configuration)
+
 
 
 //DW1000 SLEEP and WAKEUP configuration parameters
@@ -1064,7 +1067,9 @@ void dwt_lowpowerlistenisr(void);
  *
  * @brief This function enables the specified events to trigger an interrupt.
  * The following events can be enabled:
+ * DWT_INT_TPRS         0x00000020          // transmit preamble sent
  * DWT_INT_TFRS         0x00000080          // frame sent
+ * DWT_INT_SFDD         0x00000200          // receiver SFD detected
  * DWT_INT_RFCG         0x00004000          // frame received with good CRC
  * DWT_INT_RPHE         0x00001000          // receiver PHY header error
  * DWT_INT_RFCE         0x00008000          // receiver CRC error
